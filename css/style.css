@@ -5,9 +5,10 @@ html, body, p, h1 {
     padding: 0;
 }
 
-#timer p {
+.container #timer p {
     margin: 20px;
     font-family: 'Aldrich', sans-serif;
     font-size: 24px;
     text-align: center;
 }
+

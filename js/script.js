@@ -38,7 +38,7 @@ $(function(){
 
         timeFormatted = timeFormatted.join(':');
 
-        $("#timer p").text(timeFormatted);
+        $(".container #timer p").text(timeFormatted);
     }
 
     setInterval(timer, 1000);
