@@ -5,6 +5,21 @@ $(function(){
     let openCards = Array();
     let avalible = 1; //Variavel de controle para que o card seja marcada apenas quando os ultimos estiverem ocultos
 
+    const endGame = () => {
+
+        for (let i = 1; i <= 32; i++) {
+
+            let classes = $('.container .cards #flip-container-'+i+' .flipper .back img').attr('class');
+            
+            if (!(classes.indexOf('locked'))) {
+                console.log('oi');
+                return 0;
+            }
+        }
+
+        clearInterval(interval);
+    }
+
     const compareCards = () => {
 
         compare = 0;
@@ -16,6 +31,8 @@ $(function(){
                 
                 openCards[0].addClass('locked');
                 openCards[1].addClass('locked');
+
+                endGame();
                 
             }
 
@@ -26,7 +43,11 @@ $(function(){
 
             setTimeout(() => {
                 for (let i = 0; i < 2; i++) {
-                    openCards[i].parent().parent().css('transform', 'rotateX(360deg)');
+                    openCards[i]
+                    .parent()
+                        .parent()
+                            .css('transform', 'rotateX(360deg)')
+                            .off('click');
                 }
 
                 openCards.splice(0, openCards.length);
@@ -79,7 +100,7 @@ $(function(){
         $(".container header #timer p").text(timeFormatted);
     }
 
-    setInterval(timer, 1000);
+    let interval = setInterval(timer, 1000);
 
     const clickFlip = () => {
         for (let i = 1; i <= 32; i++) {
@@ -93,6 +114,7 @@ $(function(){
                     openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
 
                     if (compare == 2) {
+
                         compareCards();
                 
                     }
@@ -123,7 +145,7 @@ $(function(){
 
         for (let i = 0; i < 16; i++) {
 
-            numImageRand = Math.floor(Math.random() * quantItemArrayImage); //Sorteando numero aleatorio para escolher imagem aleatoria            
+            numImageRand = Math.floor(Math.random() * quantItemArrayImage); //Sorteando numero aleatorio para escolher imagem aleatoria
             
             numCardRand = Math.floor(Math.random() * quantItemArrayCard); //Sorteando numero aleatorio para escolher card aleatorio
             
