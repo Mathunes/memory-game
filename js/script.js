@@ -9,12 +9,25 @@ $(function(){
         compare = 0;
 
         if (openCards[0].attr('src') == openCards[1].attr('src')) {
+
             if (openCards[0].attr('class') != openCards[1].attr('class')) {
                 console.log('aeee');
             }
+
+        } else {
+
+            setTimeout(() => {
+                for (let i = 0; i < 2; i++) {
+                    openCards[i].parent().parent().css('transform', 'rotateX(360deg)');
+                }
+
+                openCards.splice(0, openCards.length);
+                
+            }, 1000);
+        
         }
         
-        openCards.splice(0, openCards.length);
+        
     }
 
     const timer = () => {
@@ -100,14 +113,14 @@ $(function(){
             numCardRand = Math.floor(Math.random() * quantItemArrayCard); //Sorteando numero aleatorio para escolher card aleatorio
             
             arrayCards[numCardRand].attr('src', arrayImages[numImageRand]); //Adicionando imagem no card
-            arrayCards[numCardRand].attr('class', '0');
+            arrayCards[numCardRand].attr('class', '0'); //Classe para distinguir do outro card com a mesma imagem
 
             arrayCards.splice(numCardRand, 1); //Removendo card que ja possui imagem do array
             quantItemArrayCard--;
 
             numCardRand = Math.floor(Math.random() * quantItemArrayCard); //Sorteando numero aleatorio para escolher card aleatorio
             arrayCards[numCardRand].attr('src', arrayImages[numImageRand]); //Adicionando a mesma imagem em outro card
-            arrayCards[numCardRand].attr('class', '1');
+            arrayCards[numCardRand].attr('class', '1'); //Classe para distinguir do outro card com a mesma imagem
             
             arrayCards.splice(numCardRand, 1); //Removendo card que ja possui imagem do array
             quantItemArrayCard--;
