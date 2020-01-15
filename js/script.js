@@ -57,8 +57,8 @@ $(function(){
 
         let arrayImages = Array();
         let arrayCards = Array();
-        let quantItemArrayImage = 15;
-        let quantItemArrayCard = 31;
+        let quantItemArrayImage = 16;
+        let quantItemArrayCard = 32;
         let numImageRand;
         let numCardRand;
 
@@ -74,8 +74,9 @@ $(function(){
         for (let i = 0; i < 16; i++) {
 
             numImageRand = Math.floor(Math.random() * quantItemArrayImage); //Sorteando numero aleatorio para escolher imagem aleatoria            
-
+            
             numCardRand = Math.floor(Math.random() * quantItemArrayCard); //Sorteando numero aleatorio para escolher card aleatorio
+            
             arrayCards[numCardRand].attr('src', arrayImages[numImageRand]); //Adicionando imagem no card
 
             arrayCards.splice(numCardRand, 1); //Removendo card que ja possui imagem do array
