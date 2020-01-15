@@ -3,7 +3,7 @@ $(function(){
     let time = Array(0, 0, 0);
     let compare = 0;
     let openCards = Array();
-    let avalible = 1;
+    let avalible = 1; //Variavel de controle para que o card seja marcada apenas quando os ultimos estiverem ocultos
 
     const compareCards = () => {
 
@@ -13,7 +13,10 @@ $(function(){
         if (openCards[0].attr('src') == openCards[1].attr('src')) {
 
             if (openCards[0].attr('class') != openCards[1].attr('class')) {
-                console.log('aeee');
+                
+                openCards[0].addClass('locked');
+                openCards[1].addClass('locked');
+                
             }
 
             openCards.splice(0, openCards.length);
@@ -30,7 +33,7 @@ $(function(){
 
                 avalible = 1;
                 
-            }, 1000);
+            }, 800);
         
         }
         

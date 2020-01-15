@@ -28,6 +28,7 @@ html, body, p, h1 {
     justify-content: center;
     align-items: center;
     max-width: 1000px;
+    cursor: pointer;
 }
 
 .container .cards .row {
@@ -101,4 +102,9 @@ html, body, p, h1 {
         width: 60px;
         height: 60px;
     }
+}
+
+.locked {
+    opacity: 0.5;
+    cursor: default;
 }
