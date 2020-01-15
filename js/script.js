@@ -3,16 +3,21 @@ $(function(){
     let time = Array(0, 0, 0);
     let compare = 0;
     let openCards = Array();
+    let avalible = 1;
 
     const compareCards = () => {
 
         compare = 0;
+        avalible = 0;
 
         if (openCards[0].attr('src') == openCards[1].attr('src')) {
 
             if (openCards[0].attr('class') != openCards[1].attr('class')) {
                 console.log('aeee');
             }
+
+            openCards.splice(0, openCards.length);
+            avalible = 1;
 
         } else {
 
@@ -22,6 +27,8 @@ $(function(){
                 }
 
                 openCards.splice(0, openCards.length);
+
+                avalible = 1;
                 
             }, 1000);
         
@@ -75,14 +82,19 @@ $(function(){
         for (let i = 1; i <= 32; i++) {
             $('.container .cards #flip-container-'+i).click(() => {
 
-                compare++;
-                $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)');
+                if (avalible) {
+                    compare++;
+                
+                    $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)');
 
-                openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
+                    openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
 
-                if (compare == 2) {
-                    compareCards();
+                    if (compare == 2) {
+                        compareCards();
+                
+                    }
                 }
+                
 
             })
         }
