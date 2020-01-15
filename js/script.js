@@ -9,12 +9,15 @@ $(function(){
 
         for (let i = 1; i <= 32; i++) {
 
-            let classes = $('.container .cards #flip-container-'+i+' .flipper .back img').attr('class');
+            let classes = $('.container .cards #flip-container-'+i+' .flipper .back img').attr('class').split(' ');
             
-            if (!(classes.indexOf('locked'))) {
-                console.log('oi');
+            if (classes.length > 1) {
+                console.log(classes);
+                continue;
+            } else {
                 return 0;
             }
+
         }
 
         clearInterval(interval);
@@ -46,8 +49,7 @@ $(function(){
                     openCards[i]
                     .parent()
                         .parent()
-                            .css('transform', 'rotateX(360deg)')
-                            .off('click');
+                            .css('transform', 'rotateX(360deg)');
                 }
 
                 openCards.splice(0, openCards.length);
