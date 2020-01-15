@@ -42,6 +42,19 @@ $(function(){
     }
 
     setInterval(timer, 1000);
+
+    const clickFlip = () => {
+        for (let i = 1; i <= 32; i++) {
+            $('.container .cards #flip-container-'+i).click(() => {
+                
+                $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)');
+
+            })
+        }
+        
+    }
+
+    clickFlip();
     
     
 
