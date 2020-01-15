@@ -1,6 +1,21 @@
 $(function(){
 
     let time = Array(0, 0, 0);
+    let compare = 0;
+    let openCards = Array();
+
+    const compareCards = () => {
+
+        compare = 0;
+
+        if (openCards[0].attr('src') == openCards[1].attr('src')) {
+            if (openCards[0].attr('class') != openCards[1].attr('class')) {
+                console.log('aeee');
+            }
+        }
+        
+        openCards.splice(0, openCards.length);
+    }
 
     const timer = () => {
 
@@ -46,8 +61,15 @@ $(function(){
     const clickFlip = () => {
         for (let i = 1; i <= 32; i++) {
             $('.container .cards #flip-container-'+i).click(() => {
-                
+
+                compare++;
                 $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)');
+
+                openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
+
+                if (compare == 2) {
+                    compareCards();
+                }
 
             })
         }
@@ -78,12 +100,14 @@ $(function(){
             numCardRand = Math.floor(Math.random() * quantItemArrayCard); //Sorteando numero aleatorio para escolher card aleatorio
             
             arrayCards[numCardRand].attr('src', arrayImages[numImageRand]); //Adicionando imagem no card
+            arrayCards[numCardRand].attr('class', '0');
 
             arrayCards.splice(numCardRand, 1); //Removendo card que ja possui imagem do array
             quantItemArrayCard--;
 
             numCardRand = Math.floor(Math.random() * quantItemArrayCard); //Sorteando numero aleatorio para escolher card aleatorio
             arrayCards[numCardRand].attr('src', arrayImages[numImageRand]); //Adicionando a mesma imagem em outro card
+            arrayCards[numCardRand].attr('class', '1');
             
             arrayCards.splice(numCardRand, 1); //Removendo card que ja possui imagem do array
             quantItemArrayCard--;
