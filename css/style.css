@@ -38,8 +38,35 @@ html, body, p, h1 {
     width: 110px;
     height: 110px;
     margin: 5px;
-    background-color: aquamarine;
+    perspective: 1000px;
 }
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.front, .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.back{
+    transform: rotateX(180deg);
+}
+
+.flip-container:hover .flipper{
+    transform: rotateX(180deg);
+    /* se quiser uma animação na vertical,
+    troque por rotateX(180deg)
+    */
+}
+
 
 @media (max-width: 1000px) {
     .container .cards .card {
