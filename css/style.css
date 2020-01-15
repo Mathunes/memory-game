@@ -6,6 +6,7 @@ html, body, p, h1 {
 }
 
 #timer p {
+    margin: 20px;
     font-family: 'Aldrich', sans-serif;
     font-size: 24px;
     text-align: center;
