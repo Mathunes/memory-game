@@ -21,8 +21,6 @@ html, body, p, h1 {
     text-align: center;
 }
 
-
-
 .container .cards {
     display: flex;
     flex-direction: row;
