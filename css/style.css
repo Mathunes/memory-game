@@ -16,6 +16,7 @@ html, body, p, h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 10px;
 }
 
 .container .cards {
@@ -36,4 +37,39 @@ html, body, p, h1 {
     height: 110px;
     margin: 5px;
     background-color: aquamarine;
+}
+
+@media (max-width: 1000px) {
+    .container .cards .card {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    .container .cards .card {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 750px) {
+    .container .cards .card {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container .cards .card {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 450px) {
+    .container .cards .card {
+        width: 60px;
+        height: 60px;
+    }
 }
