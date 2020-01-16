@@ -88,20 +88,25 @@ html, body {
 
 .container #play a button {
     font-size: 36px;
-    background-color: #FFFFFF;
+    background-color: transparent;
     border: 5px solid #000000;
     border-radius: 10px;
 }
 
 .container #modal-credits button {
     font-size: 14px;
-    background-color: #FFFFFF;
+    background-color: transparent;
     border: 3px solid #000000;
     border-radius: 5px;
 }
 
 button:hover {
     cursor: pointer;
+}
+
+.button-darkmode {
+    border-color: #FFFFFF !important;
+    color: #FFFFFF;
 }
 
 .modal-container {
