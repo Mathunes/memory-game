@@ -34,6 +34,8 @@ $(function(){
 
     }
 
+    modalEndGame();
+
     const compareCards = () => {
 
         compare = 0;
@@ -204,36 +206,23 @@ $(function(){
         })
     }
 
-    const darkmodeBg = () => {
+    const darkmodeChange = () => {
 
         $('.container').toggleClass('darkmode');
+        $('.container header h1 span').toggleClass('title-darkmode');
+        $('.container #modal-credits button').toggleClass('button-darkmode');
+        $('.container #play a button').toggleClass('button-darkmode');
+        $('.container header #darkmode #lever').toggleClass('lever-darkmode');
+        $('.container header #darkmode').toggleClass('container-lever-darkmode');
+        $('.container header #darkmode #lever').toggleClass('move-lever');
+        $('.container header #exit a i').toggleClass('darkmode');
 
-        try {
-
-            $('.container header h1 span').toggleClass('title-darkmode');
-            $('.container #modal-credits button').toggleClass('button-darkmode');
-            $('.container #play a button').toggleClass('button-darkmode');
-            $('.container header #darkmode #lever').toggleClass('lever-darkmode');
-            $('.container header #darkmode').toggleClass('container-lever-darkmode');
-            $('.container header #darkmode #lever').toggleClass('move-lever');
-
-        } catch (error) {
-        }     
-
-        try {
-
-            $('.container header #exit a i').toggleClass('darkmode');
-
-               
-
-        } catch (error) {
-        }
     }
 
     const darkmode = () => {
         $('.container header #darkmode').click(() => {
             
-            darkmodeBg();
+            darkmodeChange();
 
             if ($('.container header #darkmode').css('background-color') == "rgb(0, 0, 0)") {
                 localStorage['darkmode'] = false;
@@ -248,7 +237,7 @@ $(function(){
     
     if (darkmodeActive == "true") {
         
-        darkmodeBg();
+        darkmodeChange();
 
     }
 
