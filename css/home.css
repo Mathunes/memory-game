@@ -1,5 +1,8 @@
 .container {
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    background-image: url('../assets/img/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container header h1 {
