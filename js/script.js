@@ -8,7 +8,8 @@ $(function(){
     $('.container #modal').hide();
 
     const modalEndGame = () => {
-        $('.container #modal').show('lower');
+        $('.container .background-modal').fadeIn();
+        $('.container #modal').fadeIn();
     }
 
     const endGame = () => {
