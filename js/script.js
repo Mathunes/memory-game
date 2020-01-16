@@ -16,7 +16,7 @@ $(function(){
 
         for (let i = 1; i <= 32; i++) {
 
-            let classes = $('.container .cards #flip-container-'+i+' .flipper .back img').attr('class').split(' ');
+            let classes = $('.container .cards #flip-container-'+i+' .flipper .back img').attr('class').split(' '); //Transformando classes da img em um array
             
             if (classes.length > 1) {
                 continue;
@@ -26,7 +26,7 @@ $(function(){
 
         }
 
-        clearInterval(interval);
+        clearInterval(interval); //Se todos possuirem duas classes (x, locked) o jogo termina
 
         $('.container #modal .modal-body p').text('Elapsed time: '+$('.container header #timer').text());
 
@@ -34,35 +34,33 @@ $(function(){
 
     }
 
-    modalEndGame();
-
     const compareCards = () => {
 
-        compare = 0;
-        avalible = 0;
+        compare = 0; //Contador de cartas viradas - se for dois, esta na hora de comparar
+        avalible = 0; //Semafora para bloquear a escolha de cartas enquanto duas ainda esta para cima ou sendo guardadas
 
         if (openCards[0].attr('src') == openCards[1].attr('src')) {
 
-            if (openCards[0].attr('class') != openCards[1].attr('class')) {
+            if (openCards[0].attr('class') != openCards[1].attr('class')) { //Sendo o caminho igual, se possuirem classes distintas (0, 1) elas sao pares - sendo assim e evitado o erro de clicar na mesma carta e bloquela
                 
                 openCards[0]
                     .addClass('locked')
                     .parent()
                         .parent()
-                            .click(false);
+                            .click(false); //Removendo a funcao de click da carta
 
                 openCards[1]
                     .addClass('locked')
                     .parent()
                         .parent()
-                            .click(false);
+                            .click(false); //Removendo a funcao de click da carta
 
-                endGame();
+                endGame(); //Verificar se o jogo ja terminou
                 
             }
 
-            openCards.splice(0, openCards.length);
-            avalible = 1;
+            openCards.splice(0, openCards.length); //Removendo cartas abertas
+            avalible = 1; //Liberando semaforo
 
         } else {
 
@@ -71,36 +69,34 @@ $(function(){
                     openCards[i]
                     .parent()
                         .parent()
-                            .css('transform', 'rotateX(360deg)');
+                            .css('transform', 'rotateX(360deg)'); //Se nao forem iguais, elas rotacionam para posicao anterior
                 }
 
-                openCards.splice(0, openCards.length);
-
-                avalible = 1;
+                openCards.splice(0, openCards.length); //Removendo cartas abertas
+                avalible = 1; //Liberando semaforo
                 
             }, 800);
         
         }
         
-        
     }
 
-    const timer = () => {
+    const timer = () => { //Cronometro
 
         if (time[2] < 59) {
 
-            time[2]++;
+            time[2]++; //Segundos
 
         } else {
 
             if (time[1] < 59) {
 
-                time[1]++;
+                time[1]++; //Minutos
                 time[2] = 0;
 
             } else {
 
-                time[0]++;
+                time[0]++; //Horas
                 time[1] = 0;
                 time[2] = 0;
                 
@@ -112,7 +108,7 @@ $(function(){
 
                 if (item.toString().length < 2) {
 
-                    item = "0" + item.toString();
+                    item = "0" + item.toString(); //Adicionando 0 para os horarios com um digito
 
                 }
 
@@ -121,51 +117,50 @@ $(function(){
 
         timeFormatted = timeFormatted.join(':');
 
-        $(".container header #timer p").text(timeFormatted);
+        $(".container header #timer p").text(timeFormatted); //Adicionado hora no dom
     }
 
-    let interval = setInterval(timer, 1000);
-
     const clickFlip = () => {
-        for (let i = 1; i <= 32; i++) {
-            $('.container .cards #flip-container-'+i).click(() => {
 
-                if (avalible) {
+        for (let i = 1; i <= 32; i++) {
+
+            $('.container .cards #flip-container-'+i).click(() => { //Funcao quando card for clicado
+
+                if (avalible) { //Semaforo bloqueando o click se estiver indisponivel
+
                     compare++;
                 
-                    $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)');
+                    $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)'); //Girando card
 
-                    openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
+                    openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img')); //Adicionando ao vetor de cards para cima
 
                     if (compare == 2) {
 
-                        compareCards();
+                        compareCards(); //Comparar os cards abertos
                 
                     }
                 }
                 
-
             })
         }
     }
 
     const randImage = () => {
 
-        let arrayImages = Array();
-        let arrayCards = Array();
-        let quantItemArrayImage = 16;
-        let quantItemArrayCard = 32;
+        let arrayImages = Array(); //Array de caminho de imagens
+        let arrayCards = Array(); //Array de cards
+        let quantItemArrayImage = 16; //Valor maximo para sortear um num aleatorio para escolher a imagem
+        let quantItemArrayCard = 32; //Valor maximo para sortear um num aleatorio para escolher o card
         let numImageRand;
         let numCardRand;
 
         for (let i = 0; i < 16; i++) {
-            arrayImages.push('assets/img/faces/svg/'+i+'.svg');
+            arrayImages.push('assets/img/faces/svg/'+i+'.svg'); //Adicionando imagens ao array
         }
 
         for (let i = 1; i <= 32; i++) {
-            arrayCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
+            arrayCards.push($('.container .cards #flip-container-'+i+' .flipper .back img')); //Adicionando cards ao array
         }
-        
 
         for (let i = 0; i < 16; i++) {
 
@@ -194,52 +189,72 @@ $(function(){
     }
 
     const modalCredits = () => {
-        $('.container #modal-credits').click(() => {
+
+        $('.container #modal-credits').click(() => { //Ativando modal creditos
+
             $('.modal-container')
                 .css('display', 'flex')
                 .hide()
-                .fadeIn('fast')
+                .fadeIn('fast');
+
         });
 
-        $('.modal-container .modal-footer button').click(() => {
+        $('.modal-container .modal-footer button').click(() => { //Desativando modal creditos
+
             $('.modal-container').fadeOut('fast')
+
         })
     }
 
-    const darkmodeChange = () => {
+    const darkmodeChange = () => { //Alteracoes a serem feitas no darkmode
 
-        $('.container').toggleClass('darkmode');
-        $('.container header h1 span').toggleClass('title-darkmode');
-        $('.container #modal-credits button').toggleClass('button-darkmode');
-        $('.container #play a button').toggleClass('button-darkmode');
-        $('.container header #darkmode #lever').toggleClass('lever-darkmode');
-        $('.container header #darkmode').toggleClass('container-lever-darkmode');
-        $('.container header #darkmode #lever').toggleClass('move-lever');
-        $('.container header #exit a i').toggleClass('darkmode');
+        $('.container').toggleClass('darkmode'); //Cor de fundo da pagina
+
+        $('.container header h1 span').toggleClass('title-darkmode'); //Cor do texto "memory"
+
+        $('.container #modal-credits button').toggleClass('button-darkmode'); //Cor do botao modal
+
+        $('.container #play a button').toggleClass('button-darkmode'); //Cor do botao iniciar game
+
+        $('.container header #darkmode #lever').toggleClass('lever-darkmode'); //Cor da alavanca para ativar darkmode
+
+        $('.container header #darkmode').toggleClass('container-lever-darkmode'); //Cor do container da alavanca para ativar darkmode
+
+        $('.container header #darkmode #lever').toggleClass('move-lever'); //Deslocamento da alavanca
+
+        $('.container header #exit a i').toggleClass('darkmode'); //Cor do botao para sair do jogo
 
     }
 
     const darkmode = () => {
-        $('.container header #darkmode').click(() => {
-            
-            darkmodeChange();
 
-            if ($('.container header #darkmode').css('background-color') == "rgb(0, 0, 0)") {
-                localStorage['darkmode'] = false;
+        $('.container header #darkmode').click(() => { //Ativar/desativar darkmode
+            
+            darkmodeChange(); //Alteracoes a serem feitas
+
+            if ($('.container header #darkmode').css('background-color') == "rgb(0, 0, 0)") { //Darkmode desativado
+
+                localStorage['darkmode'] = false; //Varivel se sessao recebe false para que a pagina do game nao recebe darkmode
+
             } else {
-                localStorage['darkmode'] = true;
+
+                localStorage['darkmode'] = true; //Varivel se sessao recebe true para que a pagina do game recebe darkmode
+
             }
 
         });
+
     }
 
-    let darkmodeActive = localStorage['darkmode'];
+    let darkmodeActive = localStorage['darkmode']; //Obtendo variavel de sessao
     
-    if (darkmodeActive == "true") {
+    if (darkmodeActive == "true") { //Se o darkmode estiver ativo, a pagina do game tambem recebera o estilo
         
         darkmodeChange();
 
     }
+
+    let interval = setInterval(timer, 1000);
 
     darkmode();
 
