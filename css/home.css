@@ -15,6 +15,17 @@ html, body {
     text-align: center;
 }
 
+@media (max-width: 500px) {
+    .container header h1 {
+        font-size: 36px;
+    }
+
+    .container #play a button {
+        font-size: 24px !important;
+        border: 3px solid #000000 !important;
+    }
+}
+
 .container #play a button {
     font-size: 36px;
     background-color: #FFFFFF;

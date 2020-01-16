@@ -196,7 +196,11 @@ $(function(){
             $('.modal-container')
                 .css('display', 'flex')
                 .hide()
-                .fadeIn()
+                .fadeIn('fast')
+        });
+
+        $('.modal-container .modal-footer button').click(() => {
+            $('.modal-container').fadeOut('fast')
         })
     }
 
