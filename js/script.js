@@ -205,9 +205,14 @@ $(function(){
     }
 
     const darkmodeBg = () => {
-        console.log('oi');
-        $('.container').toggleClass('darkmode');
         
+        $('.container').toggleClass('darkmode');
+
+        try {
+            $('.container header h1 span').toggleClass('title-darkmode');
+        } catch (error) {
+            console.log("oi");
+        }
     }
 
     const darkmode = () => {

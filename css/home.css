@@ -60,10 +60,13 @@ html, body {
 }
 
 .container header h1 span {
-    color: #FFFFFF;
+    color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #000;
+}
 
+.title-darkmode {
+    -webkit-text-stroke-color: #FFFFFF !important;
 }
 
 @media (max-width: 500px) {
@@ -150,4 +153,5 @@ button:hover {
 
 .darkmode {
     background-color: #1F2C38;
+    color: #FFFFFF;
 }
