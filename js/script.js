@@ -12,7 +12,6 @@ $(function(){
             let classes = $('.container .cards #flip-container-'+i+' .flipper .back img').attr('class').split(' ');
             
             if (classes.length > 1) {
-                console.log(classes);
                 continue;
             } else {
                 return 0;
@@ -21,6 +20,9 @@ $(function(){
         }
 
         clearInterval(interval);
+
+        modalEndGame();
+        
     }
 
     const compareCards = () => {
@@ -43,9 +45,6 @@ $(function(){
                     .parent()
                         .parent()
                             .click(false);
-
-                // openCards[1].click(false);
-                // openCards[3].click(false);
 
                 endGame();
                 
