@@ -29,9 +29,11 @@ $(function(){
 
         $('.container #modal .modal-body p').text('Elapsed time: '+$('.container header #timer').text());
 
-        modalEndGame();  
+        modalEndGame();
 
     }
+
+    setTimeout(modalEndGame, 1000);
 
     const compareCards = () => {
 
