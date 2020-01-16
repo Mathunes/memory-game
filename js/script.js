@@ -5,6 +5,12 @@ $(function(){
     let openCards = Array();
     let avalible = 1; //Variavel de controle para que o card seja marcada apenas quando os ultimos estiverem ocultos
 
+    $('.container #modal').hide();
+
+    const modalEndGame = () => {
+        $('.container #modal').show('lower');
+    }
+
     const endGame = () => {
 
         for (let i = 1; i <= 32; i++) {
@@ -21,9 +27,11 @@ $(function(){
 
         clearInterval(interval);
 
-        modalEndGame();
-        
+        modalEndGame();    
+
     }
+    
+    
 
     const compareCards = () => {
 
