@@ -28,15 +28,24 @@ $(function(){
         compare = 0;
         avalible = 0;
 
-        if (openCards[0].attr('src') == openCards[2].attr('src')) {
+        if (openCards[0].attr('src') == openCards[1].attr('src')) {
 
-            if (openCards[0].attr('class') != openCards[2].attr('class')) {
+            if (openCards[0].attr('class') != openCards[1].attr('class')) {
                 
-                openCards[0].addClass('locked');
-                openCards[2].addClass('locked');
+                openCards[0]
+                    .addClass('locked')
+                    .parent()
+                        .parent()
+                            .click(false);
 
-                openCards[1].click(false);
-                openCards[3].click(false);
+                openCards[1]
+                    .addClass('locked')
+                    .parent()
+                        .parent()
+                            .click(false);
+
+                // openCards[1].click(false);
+                // openCards[3].click(false);
 
                 endGame();
                 
@@ -48,7 +57,7 @@ $(function(){
         } else {
 
             setTimeout(() => {
-                for (let i = 0; i < 4; i+=2) {
+                for (let i = 0; i < 2; i++) {
                     openCards[i]
                     .parent()
                         .parent()
@@ -117,7 +126,6 @@ $(function(){
                     $('.container .cards #flip-container-'+i+' .flipper').css('transform', 'rotateX(180deg)');
 
                     openCards.push($('.container .cards #flip-container-'+i+' .flipper .back img'));
-                    openCards.push($('.container .cards #flip-container-'+i+' .flipper'));
 
                     if (compare == 2) {
 
