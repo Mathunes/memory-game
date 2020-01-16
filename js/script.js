@@ -34,8 +34,6 @@ $(function(){
 
     }
 
-    setTimeout(modalEndGame, 1000);
-
     const compareCards = () => {
 
         compare = 0;
