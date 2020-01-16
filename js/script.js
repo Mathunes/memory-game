@@ -211,7 +211,9 @@ $(function(){
         try {
             $('.container header h1 span').toggleClass('title-darkmode');
             $('.container #modal-credits button').toggleClass('button-darkmode');
-            $('.container #play a button').toggleClass('button-darkmode')
+            $('.container #play a button').toggleClass('button-darkmode');
+            $('.container header #darkmode #lever').toggleClass('lever-darkmode');
+            $('.container header #darkmode').toggleClass('container-lever-darkmode');
         } catch (error) {
             console.log("oi");
         }
