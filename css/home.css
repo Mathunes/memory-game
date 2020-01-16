@@ -30,6 +30,7 @@ html, body {
     align-items: center;
     justify-content: center;
     background-color: rgba(2, 2, 2, 0.5);
+    display: none;
 }
 
 .modal-container #modal {
@@ -57,4 +58,12 @@ html, body {
 
 .modal-container #modal .modal-footer button:hover {
     cursor: pointer;
+    color: rgb(214, 203, 203);
+    background-color: #000000;
+    transition: 0.3s;
+}
+
+.modal-container #modal .modal-body a {
+    text-decoration: none;
+    color: cornflowerblue;
 }
