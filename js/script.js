@@ -215,6 +215,7 @@ $(function(){
             $('.container #play a button').toggleClass('button-darkmode');
             $('.container header #darkmode #lever').toggleClass('lever-darkmode');
             $('.container header #darkmode').toggleClass('container-lever-darkmode');
+            $('.container header #darkmode #lever').toggleClass('move-lever');
 
         } catch (error) {
             console.log("oi");
@@ -224,7 +225,6 @@ $(function(){
     const darkmode = () => {
         $('.container header #darkmode').click(() => {
             
-            $('.container header #darkmode #lever').toggleClass('move-lever');
             darkmodeBg();
 
             if ($('.container header #darkmode').css('background-color') == "rgb(0, 0, 0)") {
