@@ -14,6 +14,20 @@ html, body, p, h1, h3 {
     height: 100vh;
 }
 
+.container header {
+    width: 100%;
+}
+
+.container header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.container header #exit:hover {
+    cursor: pointer
+}
+
 .container header #timer p {
     margin: 0 20px 20px 20px;
     font-family: 'Aldrich', sans-serif;
