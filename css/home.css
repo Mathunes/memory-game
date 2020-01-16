@@ -40,6 +40,11 @@ html, body {
     border-radius: 100%;
 }
 
+.move-lever {
+    float: right;
+    transition: 0.3s;
+}
+
 .container header h1 span {
     color: #FFFFFF;
     -webkit-text-stroke-width: 1px;

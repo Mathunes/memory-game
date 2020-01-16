@@ -204,6 +204,16 @@ $(function(){
         })
     }
 
+    const darkmode = () => {
+        $('.container header #darkmode').click(() => {
+            $('.container header #darkmode #lever').toggleClass('move-lever');
+        }, () => {
+            $('.container header #darkmode #lever').toggleClass('move-lever');
+        })
+    }
+
+    darkmode();
+
     modalCredits();
 
     clickFlip();
