@@ -105,6 +105,7 @@ html, body, p, h1 {
 }
 
 .locked {
+    transition: opacity .5s;
     opacity: 0.5;
     cursor: default;
 }
