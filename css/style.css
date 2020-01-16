@@ -58,7 +58,7 @@ html, body, p, h1, h3, h4 {
     width: 110px;
     height: 110px;
     margin: 5px;
-    perspective: 1000px;
+    -webkit-perspective: 1000px;
 }
 
 .flipper {
@@ -66,18 +66,18 @@ html, body, p, h1, h3, h4 {
     width: 100%;
     height: 100%;
     transition: transform 0.8s;
-    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
 .front, .back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .back {
-    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
 }
 
 @media (max-width: 1000px) {
@@ -188,4 +188,13 @@ html, body, p, h1, h3, h4 {
 
 .darkmode {
     background-color: #1F2C38;
+    color: #FFFFFF;
+}
+
+.invert-image-color {
+    filter: invert(100%);
+}
+
+.container .cards .card .flipper .back img {
+    width: 100%;
 }

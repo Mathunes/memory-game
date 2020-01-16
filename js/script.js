@@ -157,7 +157,7 @@ $(function(){
         let numCardRand;
 
         for (let i = 0; i < 16; i++) {
-            arrayImages.push('assets/img/faces/'+i+'.svg');
+            arrayImages.push('assets/img/faces/svg/'+i+'.svg');
         }
 
         for (let i = 1; i <= 32; i++) {
@@ -218,7 +218,15 @@ $(function(){
             $('.container header #darkmode #lever').toggleClass('move-lever');
 
         } catch (error) {
-            console.log("oi");
+        }     
+
+        try {
+
+            $('.container header #exit a i').toggleClass('darkmode');
+
+               
+
+        } catch (error) {
         }
     }
 
@@ -251,5 +259,5 @@ $(function(){
     clickFlip();
     
     randImage();
-
+    
 });
