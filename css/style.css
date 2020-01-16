@@ -24,6 +24,10 @@ html, body, p, h1, h3 {
     position: relative;
 }
 
+.container header #exit a {
+    color: #000000;
+}
+
 .container header #exit:hover {
     cursor: pointer
 }
