@@ -27,11 +27,11 @@ $(function(){
 
         clearInterval(interval);
 
-        modalEndGame();    
+        $('.container #modal .modal-body p').text('Elapsed time: '+$('.container header #timer').text());
+
+        modalEndGame();  
 
     }
-    
-    
 
     const compareCards = () => {
 
