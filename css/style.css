@@ -111,10 +111,11 @@ html, body, p, h1, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(2, 2, 2, 0.3);
+    background-color: #FFFFFF;
     font-family: 'Aldrich', sans-serif;
     text-align: center;
     display: none;
+    z-index: 2;
 }
 
 .container #modal .modal-header h3 {
@@ -149,4 +150,13 @@ html, body, p, h1, h3 {
     text-decoration: none;
     color: #000000;
     font-size: 14px;
+}
+
+.container .background-modal {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(2, 2, 2, 0.3);
+    display: none;
 }
