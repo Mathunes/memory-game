@@ -191,6 +191,17 @@ $(function(){
 
     }
 
+    const modalCredits = () => {
+        $('.container #modal-credits').click(() => {
+            $('.modal-container')
+                .css('display', 'flex')
+                .hide()
+                .fadeIn()
+        })
+    }
+
+    modalCredits();
+
     clickFlip();
     
     randImage();

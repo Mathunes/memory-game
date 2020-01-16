@@ -12,6 +12,7 @@ html, body {
 .container header h1 {
     font-size: 48px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .container #play a button {
@@ -19,6 +20,17 @@ html, body {
     background-color: #FFFFFF;
     border: 5px solid #000000;
     border-radius: 10px;
+}
+
+.container #modal-credits button {
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border: 3px solid #000000;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .modal-container {
