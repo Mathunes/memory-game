@@ -185,3 +185,7 @@ html, body, p, h1, h3, h4 {
     background-color: rgba(2, 2, 2, 0.3);
     display: none;
 }
+
+.darkmode {
+    background-color: #1F2C38;
+}

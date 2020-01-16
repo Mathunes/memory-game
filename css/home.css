@@ -147,3 +147,7 @@ button:hover {
     text-decoration: none;
     color: cornflowerblue;
 }
+
+.darkmode {
+    background-color: #1F2C38;
+}

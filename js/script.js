@@ -204,12 +204,19 @@ $(function(){
         })
     }
 
+    const darkmodeBg = () => {
+        console.log('oi');
+        $('.container').toggleClass('darkmode');
+        
+    }
+
     const darkmode = () => {
         $('.container header #darkmode').click(() => {
+            
             $('.container header #darkmode #lever').toggleClass('move-lever');
-        }, () => {
-            $('.container header #darkmode #lever').toggleClass('move-lever');
-        })
+            darkmodeBg();
+
+        });
     }
 
     darkmode();
