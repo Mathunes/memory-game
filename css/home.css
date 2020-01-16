@@ -4,9 +4,21 @@ html, body {
 
 .container {
     justify-content: space-evenly;
-    background-image: url('../assets/img/bg.png');
-    background-repeat: no-repeat;
+    background: url('../assets/img/bg.png') no-repeat center center fixed;
     background-size: cover;
+}
+
+@media (max-width: 800px) {
+    .container {
+        background: url('../assets/img/bg-md.png') no-repeat center fixed;
+    }
+
+    @media (min-height: 700px) {
+        .container {
+            background: url('../assets/img/bg-md2.png') no-repeat center fixed;
+        }   
+    }
+
 }
 
 .container header {
@@ -27,6 +39,7 @@ html, body {
     border-radius: 50px;
     background-color: #000000;
     padding: 5px;
+    position: relative;
 }
 
 .container header #darkmode:hover {
@@ -38,11 +51,12 @@ html, body {
     height: 10px;
     background-color: #FFFFFF;
     border-radius: 100%;
+    position: absolute;
+    transition: all 0.5s ease;
 }
 
 .move-lever {
-    float: right;
-    transition: 0.3s;
+    left: calc(25px - 5px);
 }
 
 .container header h1 span {
@@ -60,6 +74,12 @@ html, body {
     .container #play a button {
         font-size: 24px !important;
         border: 3px solid #000000 !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .container header h1 {
+        font-size: 28px;
     }
 }
 
