@@ -15,6 +15,13 @@ html, body {
     text-align: center;
 }
 
+.container header h1 span {
+    color: #FFFFFF;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+
+}
+
 @media (max-width: 500px) {
     .container header h1 {
         font-size: 36px;
