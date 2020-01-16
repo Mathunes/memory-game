@@ -205,15 +205,17 @@ $(function(){
     }
 
     const darkmodeBg = () => {
-        
+
         $('.container').toggleClass('darkmode');
 
         try {
+
             $('.container header h1 span').toggleClass('title-darkmode');
             $('.container #modal-credits button').toggleClass('button-darkmode');
             $('.container #play a button').toggleClass('button-darkmode');
             $('.container header #darkmode #lever').toggleClass('lever-darkmode');
             $('.container header #darkmode').toggleClass('container-lever-darkmode');
+
         } catch (error) {
             console.log("oi");
         }
@@ -225,7 +227,21 @@ $(function(){
             $('.container header #darkmode #lever').toggleClass('move-lever');
             darkmodeBg();
 
+            if ($('.container header #darkmode').css('background-color') == "rgb(0, 0, 0)") {
+                localStorage['darkmode'] = false;
+            } else {
+                localStorage['darkmode'] = true;
+            }
+
         });
+    }
+
+    let darkmodeActive = localStorage['darkmode'];
+    
+    if (darkmodeActive == "true") {
+        
+        darkmodeBg();
+
     }
 
     darkmode();
